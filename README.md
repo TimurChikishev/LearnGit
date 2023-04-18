@@ -1,4 +1,4 @@
-# LearnGirBranching
+# LearnGitBranching
 
 An interactive git visualization and tutorial. 
 Aspiring students of git can use this app to educate and challenge themselves towards mastery of git!

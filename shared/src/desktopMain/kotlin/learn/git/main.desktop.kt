@@ -1,7 +1,6 @@
 package learn.git
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -13,32 +12,15 @@ import java.awt.Dimension
 import java.awt.Toolkit
 
 @Composable
-fun ApplicationScope.ImageViewerDesktop() {
-    val ioScope = rememberCoroutineScope { ioDispatcher }
-//    val toastState = remember { mutableStateOf<ToastState>(ToastState.Hidden) }
-//    val externalNavigationEventBus = remember { ExternalNavigationEventBus() }
-//    val dependencies = remember {
-//        getDependencies(toastState, ioScope, externalNavigationEventBus.events)
-//    }
-
+fun ApplicationScope.MainDesktop() {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Image Viewer",
+        title = "LearnGit",
         state = WindowState(
             position = WindowPosition.Aligned(Alignment.Center),
             size = getPreferredWindowSize(720, 857)
         ),
     ) {
-//        ImageViewerTheme {
-//            Surface(
-//                modifier = Modifier.fillMaxSize()
-//            ) {
-//                ImageViewerCommon(
-//                    dependencies = dependencies
-//                )
-//                Toast(toastState)
-//            }
-//        }
     }
 }
 
