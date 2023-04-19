@@ -1,4 +1,4 @@
-package learn.git
+package learn.git.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,6 +21,7 @@ fun ApplicationScope.MainDesktop() {
             size = getPreferredWindowSize(720, 857)
         ),
     ) {
+        Main()
     }
 }
 

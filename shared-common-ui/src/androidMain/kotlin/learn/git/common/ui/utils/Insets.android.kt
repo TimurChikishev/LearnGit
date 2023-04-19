@@ -2,8 +2,11 @@
 
 package learn.git.common.ui.utils
 
+import androidx.compose.foundation.layout.displayCutoutPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -18,3 +21,5 @@ fun TransparentSystemBars(darkIcons: Boolean) {
         )
     }
 }
+
+actual fun Modifier.notchPadding(): Modifier = displayCutoutPadding().statusBarsPadding()

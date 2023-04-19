@@ -1,4 +1,4 @@
-package learn.git
+package learn.git.common.ui.utils
 
 import androidx.compose.ui.Modifier
 

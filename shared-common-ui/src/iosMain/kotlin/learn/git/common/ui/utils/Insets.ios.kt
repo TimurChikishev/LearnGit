@@ -1,4 +1,4 @@
-package learn.git
+package learn.git.common.ui.utils
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -24,5 +24,4 @@ private val iosNotchInset = object : WindowInsets {
     override fun getBottom(density: Density): Int = 0
 }
 
-actual fun Modifier.notchPadding(): Modifier =
-    this.windowInsetsPadding(iosNotchInset)
+actual fun Modifier.notchPadding(): Modifier = windowInsetsPadding(iosNotchInset)
