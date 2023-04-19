@@ -18,17 +18,16 @@ kotlin {
 android {
     namespace = "learn.git"
 
-    compileSdk = 33
+    compileSdk = Versions.Android.compileSdk
     defaultConfig {
         applicationId = "com.devchik.LearnGitBranching"
-        minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Versions.Android.minSdk
+        targetSdk = Versions.Android.targetSdk
+        versionCode = Build.getVersionCode(project)
+        versionName = Build.getVersionName(project)
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
-

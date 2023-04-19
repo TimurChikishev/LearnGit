@@ -1,0 +1,19 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+BRANCHES_TO_SKIP=(master dev dev_rsv)
+
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
+
+TRIMMED=$(echo $BRANCH_NAME | sed -e 's:^\([^-]*-[^-]*\)-.*:\1:' -e \
+    'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/')
+
+PREFIX="[$TRIMMED]"
+COMMIT_MSG=$(cat $COMMIT_MSG_FILE)
+
+if [ -n "$BRANCH_NAME" ] && ! [[ $COMMIT_MSG == "$PREFIX"* ]] && ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then
+  sed -i.bak -e "1s/^/$PREFIX /" $COMMIT_MSG_FILE
+fi
