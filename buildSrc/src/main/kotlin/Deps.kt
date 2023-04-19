@@ -6,6 +6,12 @@ object Versions {
         const val minSdk = 24
     }
 
+    object Ios {
+        const val podVersion = "1.0-SNAPSHOT"
+
+        const val deploymentTarget = "14.0"
+    }
+
     const val kotlinVersion = "1.8.20"
 }
 
@@ -30,8 +36,9 @@ object Deps {
         }
 
         object Coroutines {
-            private const val version = "1.7.0-Beta"
+            private const val version = "1.6.4"
             const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
+            const val coreIos = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-Beta"
             const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
             const val swing = "org.jetbrains.kotlinx:kotlinx-coroutines-swing:$version"
         }
@@ -93,7 +100,7 @@ object Deps {
     }
 
     object Decompose {
-        private const val version = "1.0.0"
+        private const val version = "2.0.0-alpha-02"
         const val core = "com.arkivanov.decompose:decompose:$version"
         const val compose = "com.arkivanov.decompose:extensions-compose-jetbrains:$version"
         const val android = "com.arkivanov.decompose:extensions-android:$version"
@@ -107,7 +114,7 @@ object Deps {
     }
 
     object Logging {
-        const val napier = "io.github.aakira:napier:1.5.0"
+        const val napier = "io.github.aakira:napier:2.6.1"
     }
 
     object MVI {

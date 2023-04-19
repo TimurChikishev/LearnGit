@@ -11,6 +11,7 @@ import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
 import org.gradle.kotlin.dsl.named
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
+import org.jetbrains.compose.ComposePlugin
 
 // Build Info
 object Build {
@@ -90,3 +91,9 @@ fun KotlinSourceSet.apis(
 ) = dependencies {
     dependecies.forEach(::api)
 }
+
+val KotlinMultiplatformExtension.`compose`: ComposePlugin.Dependencies get() =
+    (this as ExtensionAware).extensions.getByName("compose") as ComposePlugin.Dependencies
+
+fun KotlinMultiplatformExtension.`compose`(configure: Action<ComposePlugin.Dependencies>): Unit =
+    (this as ExtensionAware).extensions.configure("compose", configure)

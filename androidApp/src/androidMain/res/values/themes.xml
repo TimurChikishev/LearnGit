@@ -1,5 +1,5 @@
 <resources>
     <style name="Theme.LearnGit" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">#FFFFFF</item>
     </style>
 </resources>
