@@ -11,14 +11,16 @@ kotlin {
     cocoapods {
         summary = "Shared code for LearnGitBranching"
         homepage = "https://github.com/TimurChikishev/LearnGit"
-        ios.deploymentTarget = "14.1"
+        ios.deploymentTarget = Versions.Ios.deploymentTarget
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
+            export(project(":shared-common-ui"))
+            export(Deps.Kmm.Resources.core)
+            export(Deps.Kmm.Colors.core)
             isStatic = true
         }
-        extraSpecAttributes["resources"] =
-            "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+        noPodspec()
     }
     sourceSets {
         val commonMain by getting {

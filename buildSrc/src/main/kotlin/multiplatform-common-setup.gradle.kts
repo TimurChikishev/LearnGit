@@ -33,6 +33,7 @@ kotlin {
                 api(Deps.AndroidX.ktx)
                 api(Deps.AndroidX.appcompat)
                 api(Deps.AndroidX.Compose.activity)
+                api(Deps.Kmm.Resources.android)
                 api(Deps.Koin.android)
                 implementation(Deps.Koin.compose)
                 implementation(Deps.Decompose.android)
@@ -73,8 +74,7 @@ android {
         manifest.srcFile("src/androidMain/AndroidManifest.xml")
         res.srcDirs(
             File(buildDir, "src/androidMain/res"),
-            File(buildDir, "generated/moko/androidMain/res"),
-            File(buildDir, "generated/libres/android/resources"),
+            File(buildDir, "generated/moko/androidMain/res")
         )
     }
 }

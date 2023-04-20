@@ -8,13 +8,14 @@ version = Versions.Ios.podVersion
 
 multiplatformResources {
     multiplatformResourcesPackage = "learn.git.res"
-    iosBaseLocalizationRegion = "ru"
+    iosBaseLocalizationRegion = "en"
     disableStaticFrameworkWarning = true
 }
 
 kotlin {
     cocoapods.framework {
         export(Deps.Kmm.Resources.core)
+        isStatic = true
     }
     sourceSets {
         val androidMain by getting {

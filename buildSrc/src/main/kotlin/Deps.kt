@@ -9,7 +9,7 @@ object Versions {
     object Ios {
         const val podVersion = "1.0-SNAPSHOT"
 
-        const val deploymentTarget = "14.0"
+        const val deploymentTarget = "14.1"
     }
 
     const val kotlinVersion = "1.8.20"
