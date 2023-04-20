@@ -26,15 +26,19 @@ kotlin {
                 implementation(Deps.Decompose.core)
                 implementation(Deps.Kmm.collections)
                 implementation(Deps.Kotlin.Coroutines.core)
+                implementation(Deps.MVI.main)
+                implementation(Deps.MVI.core)
+                implementation(Deps.MVI.logging)
+                implementation(Deps.MVI.coroutines)
             }
         }
         val androidMain by getting {
             dependencies {
+                api(Deps.Koin.android)
                 api(Deps.AndroidX.ktx)
                 api(Deps.AndroidX.appcompat)
                 api(Deps.AndroidX.Compose.activity)
                 api(Deps.Kmm.Resources.android)
-                api(Deps.Koin.android)
                 implementation(Deps.Koin.compose)
                 implementation(Deps.Decompose.android)
                 implementation(Deps.Decompose.compose)

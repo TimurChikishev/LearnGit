@@ -1,4 +1,4 @@
-package learn.git.utils
+package learn.git.core.utils.coroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
 

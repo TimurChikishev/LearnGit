@@ -26,6 +26,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":shared-common-ui"))
+                api(project(":shared-common-utils"))
                 implementation(project(":shared-core-navigation"))
             }
         }
