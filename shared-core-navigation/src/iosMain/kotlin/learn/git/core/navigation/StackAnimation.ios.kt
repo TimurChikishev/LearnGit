@@ -10,6 +10,6 @@ actual fun interface StackAnimation<C : Any, T : Any> {
     actual operator fun invoke(
         stack: ChildStack<C, T>,
         modifier: Modifier,
-        content: @Composable (child: Child.Created<C, T>) -> Unit
+        content: @Composable (child: Child.Created<C, T>) -> Unit,
     )
 }
