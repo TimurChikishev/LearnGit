@@ -1,5 +1,6 @@
 package learn.git.core.navigation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
@@ -21,11 +22,9 @@ actual fun <C : Any, T : Any> Children(
 
     holder.retainStates(stack.getConfigurations())
 
-    val anim = animation ?: emptyStackAnimation()
-
-    anim(stack = stack, modifier = modifier) { child ->
-        holder.SaveableStateProvider(child.configuration.key()) {
-            content(child)
+    Box(modifier = modifier) {
+        holder.SaveableStateProvider(stack.active.configuration.key()) {
+            content(stack.active)
         }
     }
 }

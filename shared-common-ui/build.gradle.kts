@@ -13,9 +13,13 @@ multiplatformResources {
 }
 
 kotlin {
-    cocoapods.framework {
-        export(Deps.Kmm.Resources.core)
-        isStatic = true
+    cocoapods {
+        framework {
+            export(Deps.Kmm.Resources.core)
+            isStatic = true
+        }
+        extraSpecAttributes["resources"] =
+            "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
     sourceSets {
         val androidMain by getting {
