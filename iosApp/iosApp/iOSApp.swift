@@ -11,10 +11,29 @@ struct iOSApp: App {
             }
         )
     }
+ 
+    private var rootHolder = RootHolder()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(defaultComponentContext: rootHolder.defaultComponentContext)
         }
+    }
+}
+ 
+private class RootHolder {
+    let lifecycle: LifecycleRegistry
+    let defaultComponentContext: DefaultComponentContext
+    
+    init() {
+        lifecycle = LifecycleRegistryKt.LifecycleRegistry()
+        
+        defaultComponentContext = DefaultComponentContext(lifecycle: lifecycle)
+        
+        LifecycleRegistryExtKt.create(lifecycle)
+    }
+    
+    deinit {
+        LifecycleRegistryExtKt.destroy(lifecycle)
     }
 }

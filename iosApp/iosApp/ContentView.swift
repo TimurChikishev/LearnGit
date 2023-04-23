@@ -3,9 +3,18 @@ import SwiftUI
 import shared
 
 struct ComposeView: UIViewControllerRepresentable {
+    
+    let defaultComponentContext: DefaultComponentContext
+    
     func makeUIViewController(context: Context) -> UIViewController {
-        let controller = Main_iosKt.MainViewController()
+        let targetDependencies = DependenciesImpl(componentContext: defaultComponentContext)
+        
+        let controller = Main_iosKt.MainViewController(
+            targetDependencies: targetDependencies
+        )
+        
         controller.overrideUserInterfaceStyle = .light
+        
         return controller
     }
 
@@ -13,10 +22,21 @@ struct ComposeView: UIViewControllerRepresentable {
 }
 
 struct ContentView: View {
+    
+    let defaultComponentContext: DefaultComponentContext
+    
     var body: some View {
         ZStack {
-            ComposeView()
+            ComposeView(defaultComponentContext: defaultComponentContext)
                     .ignoresSafeArea(.all) // Compose has own keyboard handler
         }.preferredColorScheme(.dark)
+    }
+}
+
+private class DependenciesImpl : TargetDependencies {
+    let componentContext: DefaultComponentContext
+    
+    init(componentContext: DefaultComponentContext) {
+        self.componentContext = componentContext
     }
 }

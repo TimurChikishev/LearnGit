@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import com.arkivanov.decompose.DefaultComponentContext
+import com.arkivanov.decompose.defaultComponentContext
 import learn.git.common.ui.theme.ThemeProvider
 import learn.git.common.ui.utils.TransparentSystemBars
 import org.koin.android.ext.android.inject
@@ -19,7 +21,11 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             TransparentSystemBars(darkIcons = themeProvider.isDarkTheme.not())
-            MainAndroid()
+            MainAndroid(
+                targetDependencies = object : TargetDependencies {
+                    override val componentContext: DefaultComponentContext = defaultComponentContext()
+                }
+            )
         }
     }
 }

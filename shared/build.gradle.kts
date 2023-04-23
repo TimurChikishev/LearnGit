@@ -17,7 +17,9 @@ kotlin {
             baseName = "shared"
             export(project(":shared-common-ui"))
             export(Deps.Kmm.Resources.core)
-            export(Deps.Kmm.Colors.core)
+            export(Deps.Kmm.Decompose.core)
+            export(Deps.Kmm.Essenty.lifecycle)
+            export(Deps.Kmm.Essenty.stateKeeper)
             isStatic = true
         }
         noPodspec()
@@ -28,6 +30,8 @@ kotlin {
                 api(project(":shared-common-ui"))
                 api(project(":shared-common-utils"))
                 implementation(project(":shared-core-navigation"))
+                implementation(project(":shared-feature-splash:ui"))
+                implementation(project(":shared-feature-onboarding:ui"))
             }
         }
     }

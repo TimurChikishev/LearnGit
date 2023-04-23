@@ -21,12 +21,8 @@ actual fun <C : Any, T : Any> Children(
 
     holder.retainStates(stack.getConfigurations())
 
-    val anim = animation ?: emptyStackAnimation()
-
-    anim(stack = stack, modifier = modifier) { child ->
-        holder.SaveableStateProvider(child.configuration.key()) {
-            content(child)
-        }
+    holder.SaveableStateProvider(stack.active.configuration.key()) {
+        content(stack.active)
     }
 }
 

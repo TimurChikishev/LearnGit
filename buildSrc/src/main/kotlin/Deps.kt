@@ -84,49 +84,44 @@ object Deps {
             private const val version = "0.20.1"
             const val core = "dev.icerock.moko:resources:$version"
             const val gradlePlugin = "dev.icerock.moko:resources-generator:$version"
-            const val android = "dev.icerock.moko:resources-compose:$version"
+            const val compose = "dev.icerock.moko:resources-compose:$version"
         }
 
-        object Colors {
-            private const val version = "0.9.0"
-            const val core = "dev.icerock.moko:graphics:$version"
+        object Essenty {
+            private const val version = "1.1.0"
+            val lifecycle = "com.arkivanov.essenty:lifecycle:$version"
+            val stateKeeper = "com.arkivanov.essenty:state-keeper:$version"
         }
 
-        object Images {
-            private const val version = "1.1.4"
-            const val gradlePlugin = "io.github.skeptick.libres:gradle-plugin:$version"
-            const val compose = "io.github.skeptick.libres:libres-compose:$version"
+        object Decompose {
+            private const val version = "2.0.0-alpha-02"
+            const val core = "com.arkivanov.decompose:decompose:$version"
+            const val compose = "com.arkivanov.decompose:extensions-compose-jetbrains:$version"
+            const val android = "com.arkivanov.decompose:extensions-android:$version"
         }
-    }
 
-    object Decompose {
-        private const val version = "2.0.0-alpha-02"
-        const val core = "com.arkivanov.decompose:decompose:$version"
-        const val compose = "com.arkivanov.decompose:extensions-compose-jetbrains:$version"
-        const val android = "com.arkivanov.decompose:extensions-android:$version"
-    }
+        object Koin {
+            private const val version = "3.3.3"
+            const val core = "io.insert-koin:koin-core:$version"
+            const val android = "io.insert-koin:koin-android:$version"
+            const val compose = "io.insert-koin:koin-androidx-compose:3.4.2"
+        }
 
-    object Koin {
-        private const val version = "3.3.3"
-        const val core = "io.insert-koin:koin-core:$version"
-        const val android = "io.insert-koin:koin-android:$version"
-        const val compose = "io.insert-koin:koin-androidx-compose:3.4.2"
-    }
+        object Logging {
+            const val napier = "io.github.aakira:napier:2.6.1"
+        }
 
-    object Logging {
-        const val napier = "io.github.aakira:napier:2.6.1"
-    }
+        object MVI {
+            private const val version = "3.0.2"
+            const val core = "com.arkivanov.mvikotlin:mvikotlin:$version"
+            const val main = "com.arkivanov.mvikotlin:mvikotlin-main:$version"
+            const val logging = "com.arkivanov.mvikotlin:mvikotlin-logging:$version"
+            const val coroutines = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:$version"
+        }
 
-    object MVI {
-        private const val version = "3.0.2"
-        const val core = "com.arkivanov.mvikotlin:mvikotlin:$version"
-        const val main = "com.arkivanov.mvikotlin:mvikotlin-main:$version"
-        const val logging = "com.arkivanov.mvikotlin:mvikotlin-logging:$version"
-        const val coroutines = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:$version"
-    }
-
-    object BuildKonfig {
-        private const val version = "0.11.0"
-        const val gradlePlugin = "com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:$version"
+        object BuildKonfig {
+            private const val version = "0.11.0"
+            const val gradlePlugin = "com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:$version"
+        }
     }
 }

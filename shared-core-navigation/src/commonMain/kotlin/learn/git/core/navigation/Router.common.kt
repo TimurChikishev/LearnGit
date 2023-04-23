@@ -16,6 +16,7 @@ import com.arkivanov.decompose.router.stack.StackNavigationSource
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
+import kotlin.reflect.KClass
 import kotlinx.collections.immutable.ImmutableList
 import org.koin.ext.getFullName
 
@@ -31,10 +32,11 @@ class Router<C : Parcelable>(
 ) : StackNavigation<C> by navigator
 
 @Composable
-inline fun <reified C : Parcelable> rememberChildStack(
+private fun <C : Parcelable> rememberChildStack(
     source: StackNavigationSource<C>,
-    noinline initialStack: () -> List<C>,
-    key: String = "DefaultChildStack",
+    initialStack: () -> List<C>,
+    clazz: KClass<C>,
+    key: String = clazz.getFullName(),
     handleBackButton: Boolean = false,
 ): State<ChildStack<C, ComponentContext>> {
     val componentContext = LocalComponentContext.current
@@ -42,6 +44,7 @@ inline fun <reified C : Parcelable> rememberChildStack(
     return remember {
         componentContext.childStack(
             source = source,
+            clazz = clazz,
             initialStack = initialStack,
             key = key,
             handleBackButton = handleBackButton,
@@ -50,9 +53,29 @@ inline fun <reified C : Parcelable> rememberChildStack(
     }.subscribeAsState()
 }
 
+private fun <C : Parcelable, T : Any> ComponentContext.childStack(
+    source: StackNavigationSource<C>,
+    initialStack: () -> List<C>,
+    clazz: KClass<C>,
+    key: String = "DefaultChildStack",
+    persistent: Boolean = true,
+    handleBackButton: Boolean = false,
+    childFactory: (configuration: C, ComponentContext) -> T
+): Value<ChildStack<C, T>> =
+    childStack(
+        source = source,
+        initialStack = initialStack,
+        configurationClass = clazz,
+        key = key,
+        persistent = persistent,
+        handleBackButton = handleBackButton,
+        childFactory = childFactory,
+    )
+
 @Composable
-inline fun <reified C : Parcelable> rememberRouter(
+fun <C : Parcelable> rememberRouter(
     stack: ImmutableList<C>,
+    clazz: KClass<C>,
     handleBackButton: Boolean = true
 ): Router<C> {
     val navigator: StackNavigation<C> = remember { StackNavigation() }
@@ -60,7 +83,7 @@ inline fun <reified C : Parcelable> rememberRouter(
     val childStackState: State<ChildStack<C, ComponentContext>> = rememberChildStack(
         source = navigator,
         initialStack = { stack },
-        key = C::class.getFullName(),
+        clazz = clazz,
         handleBackButton = handleBackButton
     )
 

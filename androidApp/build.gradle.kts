@@ -10,7 +10,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(project(":shared"))
-                implementation(Deps.Logging.napier)
+                implementation(Deps.Kmm.Logging.napier)
             }
         }
     }

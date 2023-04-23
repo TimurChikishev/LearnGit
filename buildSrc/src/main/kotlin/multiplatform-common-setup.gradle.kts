@@ -1,5 +1,4 @@
 import org.gradle.api.JavaVersion
-import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.kotlin
 
 plugins {
@@ -17,31 +16,32 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                api(Deps.Kmm.Decompose.core)
                 api(Deps.Kmm.Resources.core)
                 implementation(compose.runtime)
                 implementation(compose.material3)
                 implementation(compose.foundation)
-                implementation(Deps.Logging.napier)
-                implementation(Deps.Koin.core)
-                implementation(Deps.Decompose.core)
+                implementation(Deps.Kmm.Logging.napier)
+                implementation(Deps.Kmm.Koin.core)
+                implementation(Deps.Kmm.Decompose.core)
                 implementation(Deps.Kmm.collections)
                 implementation(Deps.Kotlin.Coroutines.core)
-                implementation(Deps.MVI.main)
-                implementation(Deps.MVI.core)
-                implementation(Deps.MVI.logging)
-                implementation(Deps.MVI.coroutines)
+                implementation(Deps.Kmm.MVI.main)
+                implementation(Deps.Kmm.MVI.core)
+                implementation(Deps.Kmm.MVI.logging)
+                implementation(Deps.Kmm.MVI.coroutines)
             }
         }
         val androidMain by getting {
             dependencies {
-                api(Deps.Koin.android)
+                api(Deps.Kmm.Koin.android)
                 api(Deps.AndroidX.ktx)
                 api(Deps.AndroidX.appcompat)
                 api(Deps.AndroidX.Compose.activity)
-                api(Deps.Kmm.Resources.android)
-                implementation(Deps.Koin.compose)
-                implementation(Deps.Decompose.android)
-                implementation(Deps.Decompose.compose)
+                api(Deps.Kmm.Resources.compose)
+                implementation(Deps.Kmm.Koin.compose)
+                implementation(Deps.Kmm.Decompose.android)
+                implementation(Deps.Kmm.Decompose.compose)
                 implementation(Deps.Kotlin.Coroutines.android)
             }
         }
@@ -55,9 +55,10 @@ kotlin {
         }
         val desktopMain by getting {
             dependencies {
+                api(Deps.Kmm.Resources.compose)
                 implementation(compose.desktop.common)
-                implementation(Deps.Koin.compose)
-                implementation(Deps.Decompose.compose)
+                implementation(Deps.Kmm.Koin.compose)
+                implementation(Deps.Kmm.Decompose.compose)
                 implementation(Deps.Kotlin.Coroutines.swing)
             }
         }

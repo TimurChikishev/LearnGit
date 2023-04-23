@@ -29,9 +29,8 @@ buildscript {
         dependencies {
             classpath(Deps.Kotlin.gradlePlugin)
             classpath(Deps.Android.gradlePlugin)
-            classpath(Deps.BuildKonfig.gradlePlugin)
+            classpath(Deps.Kmm.BuildKonfig.gradlePlugin)
             classpath(Deps.Kmm.Resources.gradlePlugin)
-            classpath(Deps.Kmm.Images.gradlePlugin)
         }
     }
 }
