@@ -3,6 +3,6 @@ package learn.git.ui
 import androidx.compose.runtime.Composable
 
 @Composable
-fun MainAndroid(targetDependencies: TargetDependencies) {
-    MainCommon(targetDependencies = targetDependencies)
+fun MainAndroid(platformDependencies: PlatformDependencies) {
+    MainCommon(platformDependencies = platformDependencies)
 }

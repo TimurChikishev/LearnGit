@@ -7,10 +7,10 @@ struct ComposeView: UIViewControllerRepresentable {
     let defaultComponentContext: DefaultComponentContext
     
     func makeUIViewController(context: Context) -> UIViewController {
-        let targetDependencies = DependenciesImpl(componentContext: defaultComponentContext)
+        let platformDependencies = IosDependenciesImpl(componentContext: defaultComponentContext)
         
         let controller = Main_iosKt.MainViewController(
-            targetDependencies: targetDependencies
+            platformDependencies: platformDependencies
         )
         
         controller.overrideUserInterfaceStyle = .light
@@ -33,9 +33,9 @@ struct ContentView: View {
     }
 }
 
-private class DependenciesImpl : TargetDependencies {
+private class IosDependenciesImpl : PlatformDependencies {
     let componentContext: DefaultComponentContext
-    
+
     init(componentContext: DefaultComponentContext) {
         self.componentContext = componentContext
     }

@@ -21,4 +21,7 @@ val fontSize18 = 18.sp
 val fontSize20 = 20.sp
 val fontSize22 = 22.sp
 val fontSize24 = 24.sp
+val fontSize28 = 28.sp
+val fontSize30 = 30.sp
 val fontSize32 = 32.sp
+val fontSize34 = 34.sp

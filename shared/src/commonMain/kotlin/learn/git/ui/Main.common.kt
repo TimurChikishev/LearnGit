@@ -11,14 +11,14 @@ import com.arkivanov.decompose.DefaultComponentContext
 import learn.git.common.ui.theme.GLBTheme
 import learn.git.core.navigation.LocalComponentContext
 
-interface TargetDependencies {
+interface PlatformDependencies {
     val componentContext: DefaultComponentContext
 }
 
 @Composable
-internal fun MainCommon(targetDependencies: TargetDependencies) {
+internal fun MainCommon(platformDependencies: PlatformDependencies) {
     CompositionLocalProvider(
-        LocalComponentContext provides targetDependencies.componentContext
+        LocalComponentContext provides platformDependencies.componentContext
     ) {
         MainWithProvidedDependencies()
     }

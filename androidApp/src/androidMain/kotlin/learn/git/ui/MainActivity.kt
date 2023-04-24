@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             TransparentSystemBars(darkIcons = themeProvider.isDarkTheme.not())
             MainAndroid(
-                targetDependencies = object : TargetDependencies {
+                platformDependencies = object : PlatformDependencies {
                     override val componentContext: DefaultComponentContext = defaultComponentContext()
                 }
             )

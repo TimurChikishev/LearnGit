@@ -4,7 +4,9 @@ import androidx.compose.ui.window.ComposeUIViewController
 import platform.UIKit.UIViewController
 
 @Suppress("FunctionName", "unused")
-fun MainViewController(targetDependencies: TargetDependencies): UIViewController =
+fun MainViewController(platformDependencies: PlatformDependencies): UIViewController =
     ComposeUIViewController {
-        MainCommon(targetDependencies = targetDependencies)
+        MainCommon(
+            platformDependencies = platformDependencies
+        )
     }

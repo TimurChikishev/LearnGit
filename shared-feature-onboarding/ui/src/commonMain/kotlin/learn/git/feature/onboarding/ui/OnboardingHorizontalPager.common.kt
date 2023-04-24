@@ -30,7 +30,7 @@ internal fun OnboardingHorizontalPager(
                     horizontal = paddingSize48,
                     vertical = paddingSize48,
                 ),
-            pageItem = onboardingItems[index]
+            pageItem = onboardingItems[index],
         )
     }
 }

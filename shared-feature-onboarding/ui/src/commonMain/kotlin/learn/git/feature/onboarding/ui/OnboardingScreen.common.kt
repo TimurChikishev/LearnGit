@@ -1,6 +1,7 @@
 package learn.git.feature.onboarding.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,10 +11,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.arkivanov.decompose.router.stack.replaceCurrent
-import learn.git.common.ui.theme.paddingSize32
 import learn.git.common.ui.theme.paddingSize48
-import learn.git.common.ui.theme.paddingSize84
 import learn.git.common.ui.utils.navigationBarInset
 import learn.git.common.ui.utils.rememberBlock
 import learn.git.common.ui.utils.statusBarInset
@@ -37,17 +37,17 @@ fun OnboardingScreen(
         OnboardingHorizontalPager(
             modifier = Modifier
                 .weight(1f)
-                .statusBarInset()
-                .padding(bottom = paddingSize32),
+                .statusBarInset(),
             pagerState = pagerState,
             onboardingItems = state.onboardingItems,
         )
         OnboardingBottomBar(
             modifier = Modifier
+                .background(Color.Transparent)
                 .navigationBarInset()
                 .fillMaxWidth()
-                .padding(horizontal = paddingSize48)
-                .padding(bottom = paddingSize84),
+                .padding(bottom = paddingSize48)
+                .padding(horizontal = paddingSize48),
             pagerState = pagerState,
             pageCount = state.onboardingItems.size,
             onNextPage = rememberBlock { viewModel.onNextPage(pagerState.currentPage) },
