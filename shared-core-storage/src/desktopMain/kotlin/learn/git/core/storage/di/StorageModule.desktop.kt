@@ -7,9 +7,12 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 actual val platformStorageModule: Module = module {
-    factory {
+    single {
         createDataStore(
-            producePath = { File(".").absolutePath + "/$DATA_STORE_FILE_NAME" }
+            producePath = {
+                val patch = File(".").absolutePath + "/$DATA_STORE_FILE_NAME"
+                patch
+            }
         )
     }
 }

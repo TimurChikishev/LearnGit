@@ -7,7 +7,7 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 actual val platformStorageModule: Module = module {
-    factory {
+    single {
         createDataStore(
             producePath = { androidContext().filesDir.resolve(DATA_STORE_FILE_NAME).absolutePath }
         )

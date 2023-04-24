@@ -18,4 +18,4 @@ internal fun createDataStore(
     produceFile = { producePath().toPath() },
 )
 
-internal const val DATA_STORE_FILE_NAME = "learn_git_branching.preferences_pb"
+internal const val DATA_STORE_FILE_NAME = "learngit.preferences_pb"

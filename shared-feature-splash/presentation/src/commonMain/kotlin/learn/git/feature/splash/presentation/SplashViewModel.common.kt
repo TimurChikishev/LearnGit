@@ -24,7 +24,6 @@ class SplashViewModel(
             runCatching {
                 splashUseCase.isFirstLaunch()
             }.onSuccess { isFirstLaunch ->
-                Napier.e(message = "isFirstLaunch=$isFirstLaunch", tag = "CHECK_LOG")
                 val destination = if (isFirstLaunch) NavGraph.Onboarding else NavGraph.Levels
                 mutableNavigation.send(destination)
             }.onFailure { throwable ->

@@ -10,7 +10,7 @@ import platform.Foundation.NSURL
 import platform.Foundation.NSUserDomainMask
 
 actual val platformStorageModule: Module = module {
-    factory {
+    single {
         createDataStore(
             producePath = {
                 val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(

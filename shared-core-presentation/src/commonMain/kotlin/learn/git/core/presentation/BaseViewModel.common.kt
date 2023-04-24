@@ -33,7 +33,7 @@ abstract class BaseViewModel<State, Label>(
         get() = mutableLabel.receiveAsFlow().cFlow()
 
     // TODO: remove when fixing this - https://github.com/icerockdev/moko-mvvm/issues/236
-    val scope = CoroutineScope(mainDispatcher)
+    protected val scope = CoroutineScope(mainDispatcher)
 
     protected var binder: Binder? = null
 

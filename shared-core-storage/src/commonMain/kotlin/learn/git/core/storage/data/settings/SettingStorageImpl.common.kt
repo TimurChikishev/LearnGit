@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.map
 internal class SettingStorageImpl(
     private val datastore: DataStore<Preferences>,
 ) : SettingsStorage {
+
     override suspend fun isFirstLaunch(): Boolean {
         return datastore.data
             .map { preferences -> preferences[KEY_IS_FIRST_LAUNCH] ?: true }
@@ -18,7 +19,7 @@ internal class SettingStorageImpl(
 
     override suspend fun setFirstLaunch() {
         datastore.edit { preference ->
-            preference[KEY_IS_FIRST_LAUNCH] = true
+            preference[KEY_IS_FIRST_LAUNCH] = false
         }
     }
 
