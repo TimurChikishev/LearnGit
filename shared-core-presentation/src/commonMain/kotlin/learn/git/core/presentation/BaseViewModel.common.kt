@@ -9,7 +9,6 @@ import dev.icerock.moko.mvvm.flow.cFlow
 import dev.icerock.moko.mvvm.flow.cMutableStateFlow
 import dev.icerock.moko.mvvm.flow.cStateFlow
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
@@ -18,6 +17,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import learn.git.core.utils.coroutines.OneTimeEvent
 import learn.git.core.utils.coroutines.mainDispatcher
+import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel<State, Label>(
     initialState: State,

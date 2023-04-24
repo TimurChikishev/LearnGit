@@ -1,5 +1,4 @@
 import com.android.build.gradle.LibraryExtension
-import java.io.File
 import org.gradle.api.Action
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.NamedDomainObjectProvider
@@ -9,9 +8,10 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.ExtensionAware
 import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
 import org.gradle.kotlin.dsl.named
+import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
-import org.jetbrains.compose.ComposePlugin
+import java.io.File
 
 // Build Info
 object Build {
