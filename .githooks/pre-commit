@@ -1,0 +1,17 @@
+#!/bin/sh
+./gradlew detekt
+DETEKT_STATUS=$?
+if [ $DETEKT_STATUS -ne 0 ]; then 
+	./gradlew detekt
+	DETEKT_STATUS=$?
+
+	if [ $DETEKT_STATUS -ne 1 ]; then 
+		git add -A
+	fi
+fi
+
+if [ $DETEKT_STATUS -ne 0 ]; then 
+	echo "detekt check fail"
+	exit 1 
+fi
+

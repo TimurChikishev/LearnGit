@@ -1,95 +1,59 @@
-@file:Suppress("OPT_IN_IS_NOT_ENABLED")
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 plugins {
-    kotlin("multiplatform")
-    kotlin("native.cocoapods")
-    id("com.android.library")
-    id("org.jetbrains.compose")
+    id("multiplatform-common-setup")
     kotlin("plugin.serialization")
+    kotlin("native.cocoapods")
     id("kotlin-parcelize")
 }
 
-version = "1.0-SNAPSHOT"
+version = Versions.Ios.podVersion
 
 kotlin {
-    android()
-    jvm("desktop")
-    ios()
-    iosSimulatorArm64()
-
     cocoapods {
-        summary = "Shared code for the sample"
-        homepage = "https://github.com/JetBrains/compose-jb"
-        ios.deploymentTarget = "14.1"
+        summary = "Shared code for LearnGitBranching"
+        homepage = "https://github.com/TimurChikishev/LearnGit"
+        ios.deploymentTarget = Versions.Ios.deploymentTarget
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
+            export(project(":shared-common-ui"))
+            export(Deps.Kmm.Resources.core)
+            export(Deps.Kmm.Decompose.core)
+            export(Deps.Kmm.Essenty.lifecycle)
+            export(Deps.Kmm.Essenty.stateKeeper)
             isStatic = true
         }
-        extraSpecAttributes["resources"] =
-            "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+        noPodspec()
     }
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(project(":shared-common-ui"))
+                api(project(":shared-common-utils"))
+                implementation(project(":shared-core-navigation"))
+            }
+        }
+    }
+    addFeatureModules()
+}
+
+fun KotlinMultiplatformExtension.addFeatureModules() {
+
+    val featureProjects = rootProject.childProjects
+        .filterKeys { name -> name.startsWith(prefix = "shared-feature-") }
+        .values
+        .flatMap { project -> project.childProjects.values }
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                //implementation(compose.materialIconsExtended) // TODO not working on iOS for now
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-            }
-        }
-        val androidMain by getting {
-            dependencies {
-                api("androidx.activity:activity-compose:1.7.0")
-                api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.9.0")
-                implementation("androidx.camera:camera-camera2:1.2.2")
-                implementation("androidx.camera:camera-lifecycle:1.2.2")
-                implementation("androidx.camera:camera-view:1.2.2")
-                implementation("com.google.accompanist:accompanist-permissions:0.29.2-rc")
-                implementation("com.google.android.gms:play-services-maps:18.1.0")
-                implementation("com.google.android.gms:play-services-location:21.0.1")
-                implementation("com.google.maps.android:maps-compose:2.11.2")
-            }
-        }
-        val iosMain by getting {
-            dependencies {
-                // Kotlin Coroutines 1.7.0 contains Dispatchers.IO
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-Beta")
-            }
-        }
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
-        }
-
-
-        val desktopMain by getting {
-            dependencies {
-                implementation(compose.desktop.common)
-            }
+        commonMain {
+            implementations(
+                *featureProjects.toTypedArray(),
+            )
         }
     }
 }
 
 android {
     namespace = "learn.git.shared"
-
-    compileSdk = 33
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
-
-    defaultConfig {
-        minSdk = 26
-        targetSdk = 33
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
 }

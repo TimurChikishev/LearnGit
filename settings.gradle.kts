@@ -24,5 +24,12 @@ pluginManagement {
 rootProject.name = "LearnGitBranching"
 
 include(":androidApp")
-include(":shared")
 include(":desktopApp")
+
+include(":shared")
+include(":shared-common-ui")
+include(":shared-common-utils")
+include(":shared-core-navigation")
+include(":shared-core-presentation")
+include(":shared-feature-splash:ui")
+include(":shared-feature-onboarding:ui")
