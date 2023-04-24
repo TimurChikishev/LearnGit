@@ -1,5 +1,6 @@
 <resources>
     <style name="Theme.LearnGit" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>
