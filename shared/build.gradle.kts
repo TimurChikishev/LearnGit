@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
 plugins {
     id("multiplatform-common-setup")
     kotlin("plugin.serialization")
@@ -25,14 +27,29 @@ kotlin {
         noPodspec()
     }
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 api(project(":shared-common-ui"))
                 api(project(":shared-common-utils"))
                 implementation(project(":shared-core-navigation"))
-                implementation(project(":shared-feature-splash:ui"))
-                implementation(project(":shared-feature-onboarding:ui"))
             }
+        }
+    }
+    addFeatureModules()
+}
+
+fun KotlinMultiplatformExtension.addFeatureModules() {
+
+    val featureProjects = rootProject.childProjects
+        .filterKeys { name -> name.startsWith(prefix = "shared-feature-") }
+        .values
+        .flatMap { project -> project.childProjects.values }
+
+    sourceSets {
+        commonMain {
+            implementations(
+                *featureProjects.toTypedArray(),
+            )
         }
     }
 }

@@ -97,3 +97,31 @@ val KotlinMultiplatformExtension.`compose`: ComposePlugin.Dependencies get() =
 
 fun KotlinMultiplatformExtension.`compose`(configure: Action<ComposePlugin.Dependencies>): Unit =
     (this as ExtensionAware).extensions.configure("compose", configure)
+
+// Feature
+enum class FeatureModuleType {
+    API,
+    UI,
+    DATA,
+    DOMAIN,
+    PRESENTATION;
+
+    val actualName get() = name.toLowerCase()
+
+    fun list() = values().map { it.name.toLowerCase() }
+}
+
+val Project.isUiModule
+    get() = (name == FeatureModuleType.UI.actualName)
+
+val Project.isApiModule
+    get() = (name == FeatureModuleType.API.actualName)
+
+val Project.isDataModule
+    get() = (name == FeatureModuleType.DATA.actualName)
+
+val Project.isDomainModule
+    get() = (name == FeatureModuleType.DOMAIN.actualName)
+
+val Project.isPresentationModule
+    get() = (name == FeatureModuleType.PRESENTATION.actualName)

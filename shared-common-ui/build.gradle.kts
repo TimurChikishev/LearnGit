@@ -22,7 +22,7 @@ kotlin {
             "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
     sourceSets {
-        val androidMain by getting {
+        androidMain {
             dependencies {
                 implementation(Deps.AndroidX.Compose.Accompanist.systemUiController)
             }

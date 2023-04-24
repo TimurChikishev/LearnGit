@@ -7,7 +7,7 @@ plugins {
 kotlin {
     android()
     sourceSets {
-        val androidMain by getting {
+        androidMain {
             dependencies {
                 implementation(project(":shared"))
                 implementation(Deps.Kmm.Logging.napier)
