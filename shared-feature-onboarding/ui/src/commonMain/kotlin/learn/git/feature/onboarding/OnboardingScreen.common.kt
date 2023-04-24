@@ -23,7 +23,9 @@ import learn.git.common.ui.theme.fontSize32
 import learn.git.common.ui.theme.paddingSize16
 import learn.git.common.ui.theme.paddingSize48
 import learn.git.common.ui.uikit.buttos.GLBButton
+import learn.git.common.ui.utils.navigationBarInset
 import learn.git.common.ui.utils.rememberBlock
+import learn.git.common.ui.utils.statusBarInset
 import learn.git.common.ui.utils.stringResource
 import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.Router
@@ -32,7 +34,10 @@ import learn.git.res.MR
 @Composable
 fun OnboardingScreen(router: Router<NavGraph>) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarInset()
+            .navigationBarInset(),
         contentAlignment = Alignment.Center
     ) {
         Column(
