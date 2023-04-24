@@ -1,4 +1,4 @@
-package learn.git.feature.onboarding
+package learn.git.feature.onboarding.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
