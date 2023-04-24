@@ -7,6 +7,11 @@ import com.arkivanov.decompose.router.stack.ChildStack
 
 expect fun interface StackAnimation<C : Any, T : Any> {
 
+    @Suppress(
+        "ComposableNaming",
+        "ComposableFunctionName",
+        "TopLevelComposableFunctions",
+    )
     @Composable
     operator fun invoke(
         stack: ChildStack<C, T>,

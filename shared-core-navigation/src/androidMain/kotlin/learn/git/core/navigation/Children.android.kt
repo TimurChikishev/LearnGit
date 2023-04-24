@@ -1,3 +1,5 @@
+@file:Suppress("MissingModifierDefaultValue")
+
 package learn.git.core.navigation
 
 import androidx.compose.runtime.Composable
@@ -10,7 +12,6 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stac
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 
 @Composable
 actual fun <C : Any, T : Any> Children(

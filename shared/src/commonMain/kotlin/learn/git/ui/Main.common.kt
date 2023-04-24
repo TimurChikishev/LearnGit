@@ -36,5 +36,3 @@ private fun MainWithProvidedDependencies() {
         }
     }
 }
-
-

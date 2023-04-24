@@ -7,6 +7,7 @@ import org.koin.core.qualifier.Qualifier
 import org.koin.mp.KoinPlatformTools
 
 fun getKoinContext() = KoinPlatformTools.defaultContext().get()
+
 @Composable
 inline fun <reified T> get(
     qualifier: Qualifier? = null,

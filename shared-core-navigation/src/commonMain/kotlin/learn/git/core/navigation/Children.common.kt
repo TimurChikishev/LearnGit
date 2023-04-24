@@ -13,6 +13,7 @@ expect fun <C : Any, T : Any> Children(
     animation: StackAnimation<C, T>? = null,
     content: @Composable (child: Child.Created<C, T>) -> Unit,
 )
+
 @Composable
 expect fun <C : Any, T : Any> Children(
     stack: ChildStack<C, T>,

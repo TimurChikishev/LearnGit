@@ -16,9 +16,12 @@ import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.Router
 
 @Composable
-fun SplashScreen(router: Router<NavGraph>) {
+fun SplashScreen(
+    router: Router<NavGraph>,
+    modifier: Modifier = Modifier,
+) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Icon(

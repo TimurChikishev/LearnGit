@@ -1,3 +1,5 @@
+@file:Suppress("MissingModifierDefaultValue")
+
 package learn.git.core.navigation
 
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children as DecomposeChildren

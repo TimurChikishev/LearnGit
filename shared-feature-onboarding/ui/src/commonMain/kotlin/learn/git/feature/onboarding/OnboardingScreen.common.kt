@@ -32,9 +32,12 @@ import learn.git.core.navigation.Router
 import learn.git.res.MR
 
 @Composable
-fun OnboardingScreen(router: Router<NavGraph>) {
+fun OnboardingScreen(
+    router: Router<NavGraph>,
+    modifier: Modifier = Modifier,
+) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .statusBarInset()
             .navigationBarInset(),
@@ -82,4 +85,3 @@ fun OnboardingScreen(router: Router<NavGraph>) {
         }
     }
 }
-

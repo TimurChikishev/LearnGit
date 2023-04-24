@@ -1,3 +1,5 @@
+@file:Suppress("MissingModifierDefaultValue")
+
 package learn.git.core.navigation
 
 import androidx.compose.foundation.layout.Box
@@ -10,6 +12,8 @@ import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.Child
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
+import kotlinx.collections.immutable.PersistentSet
+import kotlinx.collections.immutable.toPersistentSet
 
 @Composable
 actual fun <C : Any, T : Any> Children(
@@ -20,7 +24,7 @@ actual fun <C : Any, T : Any> Children(
 ) {
     val holder = rememberSaveableStateHolder()
 
-    holder.retainStates(stack.getConfigurations())
+    holder.retainStates(stack.getConfigurations().toPersistentSet())
 
     Box(modifier = modifier) {
         holder.SaveableStateProvider(stack.active.configuration.key()) {
@@ -51,8 +55,9 @@ private fun ChildStack<*, *>.getConfigurations(): Set<String> =
 
 private fun Any.key(): String = "${this::class.simpleName}_${hashCode().toString(radix = 36)}"
 
+@Suppress("ComposableFunctionName")
 @Composable
-private fun SaveableStateHolder.retainStates(currentKeys: Set<Any>) {
+private fun SaveableStateHolder.retainStates(currentKeys: PersistentSet<Any>) {
     val keys = remember(this) { Keys(currentKeys) }
 
     DisposableEffect(this, currentKeys) {

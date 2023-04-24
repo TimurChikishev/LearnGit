@@ -6,6 +6,12 @@ import com.arkivanov.decompose.Child
 import com.arkivanov.decompose.router.stack.ChildStack
 
 actual fun interface StackAnimation<C : Any, T : Any> {
+
+    @Suppress(
+        "ComposableNaming",
+        "ComposableFunctionName",
+        "TopLevelComposableFunctions",
+    )
     @Composable
     actual operator fun invoke(
         stack: ChildStack<C, T>,

@@ -12,4 +12,3 @@ actual val navigationBarInset: PaddingValues
 actual fun Modifier.statusBarInset(): Modifier = this
 
 actual fun Modifier.navigationBarInset(): Modifier = this
-
