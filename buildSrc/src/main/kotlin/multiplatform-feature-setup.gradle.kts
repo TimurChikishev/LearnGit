@@ -4,15 +4,12 @@ plugins {
 
 kotlin {
     val commonProjects = when {
-        project.isUiModule -> listOf(
+        project.isUiModule || project.isPresentationModule -> listOf(
             project(":shared-core-presentation"),
             project(":shared-core-navigation"),
             project(":shared-common-ui"),
         )
-        project.isPresentationModule -> listOf(
-            project(":shared-core-presentation"),
-            project(":shared-core-navigation"),
-        )
+
         else -> emptyList()
     }
 

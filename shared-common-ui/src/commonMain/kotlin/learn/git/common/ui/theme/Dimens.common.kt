@@ -8,7 +8,10 @@ val paddingSize8 = 8.dp
 val paddingSize12 = 12.dp
 val paddingSize16 = 16.dp
 val paddingSize24 = 24.dp
+val paddingSize32 = 32.dp
 val paddingSize48 = 48.dp
+val paddingSize64 = 64.dp
+val paddingSize84 = 84.dp
 
 val fontSize10 = 10.sp
 val fontSize12 = 12.sp

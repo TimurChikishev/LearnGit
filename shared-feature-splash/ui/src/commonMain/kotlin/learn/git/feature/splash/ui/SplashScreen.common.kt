@@ -2,6 +2,7 @@ package learn.git.feature.splash.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -9,8 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.router.stack.replaceCurrent
-import learn.git.common.ui.icons.Icons
-import learn.git.common.ui.icons.outline.Branching
+import learn.git.common.ui.icons.Branching
 import learn.git.common.ui.utils.viewModel
 import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.Router
@@ -27,7 +27,7 @@ fun SplashScreen(
         contentAlignment = Alignment.Center
     ) {
         Icon(
-            imageVector = Icons.Outline.Branching,
+            imageVector = Icons.Branching,
             tint = MaterialTheme.colorScheme.onBackground,
             contentDescription = null
         )
