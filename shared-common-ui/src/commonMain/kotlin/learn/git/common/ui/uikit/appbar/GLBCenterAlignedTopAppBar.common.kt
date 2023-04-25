@@ -6,6 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarColors
@@ -29,6 +30,8 @@ fun GLBCenterAlignedTopAppBar(
     textStyle: TextStyle = MaterialTheme.typography.titleLarge,
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(
         containerColor = Color.Transparent,
+        navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
+        actionIconContentColor = MaterialTheme.colorScheme.onBackground,
     ),
     actions: @Composable() (RowScope.() -> Unit) = {},
     onNavigationClick: () -> Unit = {},
@@ -56,6 +59,10 @@ fun GLBCenterAlignedTopAppBar(
                 GLBIconButton(
                     imageVector = Icons.Default.ArrowBack,
                     onClick = onNavigationClick,
+                    colors = IconButtonDefaults.iconButtonColors(
+                        containerColor = MaterialTheme.colorScheme.background,
+                        contentColor = MaterialTheme.colorScheme.onBackground,
+                    ),
                 )
             }
         },
