@@ -46,7 +46,7 @@ compose:
 TwitterCompose:
   CompositionLocalAllowlist:
     active: true
-    allowedCompositionLocals: LocalRouter,LocalComponentContext
+    allowedCompositionLocals: LocalRouter,LocalComponentContext,LocalDeviceOrientation
   CompositionLocalNaming:
     active: true
   ContentEmitterReturningValues:

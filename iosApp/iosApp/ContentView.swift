@@ -7,10 +7,9 @@ struct ComposeView: UIViewControllerRepresentable {
     let defaultComponentContext: DefaultComponentContext
     
     func makeUIViewController(context: Context) -> UIViewController {
-        let platformDependencies = IosDependenciesImpl(componentContext: defaultComponentContext)
         
         let controller = Main_iosKt.MainViewController(
-            platformDependencies: platformDependencies
+            defaultComponentContext: defaultComponentContext
         )
         
         controller.overrideUserInterfaceStyle = .light
@@ -30,13 +29,5 @@ struct ContentView: View {
             ComposeView(defaultComponentContext: defaultComponentContext)
                     .ignoresSafeArea(.all) // Compose has own keyboard handler
         }.preferredColorScheme(.dark)
-    }
-}
-
-private class IosDependenciesImpl : PlatformDependencies {
-    let componentContext: DefaultComponentContext
-
-    init(componentContext: DefaultComponentContext) {
-        self.componentContext = componentContext
     }
 }
