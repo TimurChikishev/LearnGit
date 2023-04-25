@@ -1,6 +1,5 @@
 package learn.git.feature.levels.ui.composable
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,8 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import learn.git.common.ui.theme.defaultBorderStroke
 import learn.git.common.ui.theme.paddingSize16
+import learn.git.common.ui.utils.defaultBorder
+import learn.git.common.ui.utils.navigationBarHorizontalPadding
 import learn.git.common.ui.utils.navigationBarInset
 import learn.git.feature.levels.presentation.models.UiLevel
 import learn.git.feature.levels.presentation.models.UiLevelsState
@@ -42,10 +42,8 @@ internal fun LevelsList(
         ) { item ->
             LevelItem(
                 modifier = Modifier
-                    .border(
-                        border = defaultBorderStroke,
-                        shape = MaterialTheme.shapes.medium,
-                    )
+                    .navigationBarHorizontalPadding()
+                    .defaultBorder()
                     .clip(MaterialTheme.shapes.medium)
                     .clickable(onClick = { onItemClick(item) })
                     .padding(paddingSize16),

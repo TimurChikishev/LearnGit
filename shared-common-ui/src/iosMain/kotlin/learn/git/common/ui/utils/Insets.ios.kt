@@ -11,31 +11,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import kotlinx.cinterop.useContents
+import platform.CoreGraphics.CGFloat
 import platform.UIKit.UIApplication
+import platform.UIKit.UIEdgeInsets
 
 private val iosNotchInset = object : WindowInsets {
-    override fun getTop(density: Density): Int {
+    override fun getTop(density: Density): Int =
+        safeAreaInsets(density = density, direction = { top })
+
+    override fun getBottom(density: Density): Int =
+        safeAreaInsets(density = density, direction = { bottom })
+
+    override fun getLeft(density: Density, layoutDirection: LayoutDirection): Int =
+        safeAreaInsets(density = density, direction = { left })
+
+    override fun getRight(density: Density, layoutDirection: LayoutDirection): Int =
+        safeAreaInsets(density = density, direction = { right })
+
+    fun safeAreaInsets(density: Density, direction: UIEdgeInsets.() -> CGFloat): Int {
         val safeAreaInsets = UIApplication.sharedApplication.keyWindow?.safeAreaInsets
         return if (safeAreaInsets != null) {
-            val topInset = safeAreaInsets.useContents { this.top }
-            (topInset * density.density).toInt()
+            val insets = safeAreaInsets.useContents { direction() }
+            (insets * density.density).toInt()
         } else {
             0
         }
     }
-
-    override fun getBottom(density: Density): Int {
-        val safeAreaInsets = UIApplication.sharedApplication.keyWindow?.safeAreaInsets
-        return if (safeAreaInsets != null) {
-            val bottomInset = safeAreaInsets.useContents { this.bottom }
-            (bottomInset * density.density).toInt()
-        } else {
-            0
-        }
-    }
-
-    override fun getLeft(density: Density, layoutDirection: LayoutDirection): Int = 0
-    override fun getRight(density: Density, layoutDirection: LayoutDirection): Int = 0
 }
 
 actual val statusBarInset: PaddingValues
