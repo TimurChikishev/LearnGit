@@ -1,5 +1,5 @@
 <resources>
     <style name="Theme.LearnGit" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:windowBackground">@color/backgroundLight</item>
     </style>
 </resources>

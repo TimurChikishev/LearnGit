@@ -14,6 +14,7 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) {
             *storageModules,
             *onboardingModules,
             *splashModules,
+            *levelsModules,
         )
     }
 }

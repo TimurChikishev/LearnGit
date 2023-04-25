@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import learn.git.common.ui.uikit.buttos.GlbIconButton
+import learn.git.common.ui.uikit.buttos.GLBIconButton
 import learn.git.common.ui.uikit.pager.HorizontalPagerIndicator
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -33,7 +33,7 @@ internal fun OnboardingBottomBar(
             pagerState = pagerState,
             pageCount = pageCount,
         )
-        GlbIconButton(
+        GLBIconButton(
             modifier = Modifier
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.primary),

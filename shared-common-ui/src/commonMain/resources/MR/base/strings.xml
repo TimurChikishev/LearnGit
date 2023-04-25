@@ -11,4 +11,7 @@
     <string name="onboarding_challenge_title">Take the\nChallenge</string>
     <string name="onboarding_challenge_subtitle">Our app allows you to test your Git knowledge in an interactive environment.</string>
 
+    <string name="levels_appbar_title">LearnGit</string>
+
+    <string name="settings_appbar_title">Settings</string>
 </resources>

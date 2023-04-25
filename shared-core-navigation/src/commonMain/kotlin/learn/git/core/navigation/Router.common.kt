@@ -16,12 +16,9 @@ import com.arkivanov.decompose.router.stack.StackNavigationSource
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
+import kotlin.reflect.KClass
 import kotlinx.collections.immutable.ImmutableList
 import org.koin.ext.getFullName
-import kotlin.reflect.KClass
-
-val LocalRouter: ProvidableCompositionLocal<Router<*>?> =
-    staticCompositionLocalOf { null }
 
 val LocalComponentContext: ProvidableCompositionLocal<ComponentContext> =
     staticCompositionLocalOf { error("Root component context was not provided") }
@@ -98,15 +95,15 @@ fun <C : Parcelable> NavigationContent(
     animation: StackAnimation<C, ComponentContext>? = null,
     content: @Composable (C) -> Unit,
 ) {
-    CompositionLocalProvider(LocalRouter provides router) {
-        Children(
-            stack = router.stack.value,
-            modifier = modifier,
-            animation = animation,
-        ) { child ->
-            CompositionLocalProvider(LocalComponentContext provides child.instance) {
-                content(child.configuration)
-            }
+    Children(
+        stack = router.stack.value,
+        modifier = modifier,
+        animation = animation,
+    ) { child ->
+        CompositionLocalProvider(
+            LocalComponentContext provides child.instance,
+        ) {
+            content(child.configuration)
         }
     }
 }

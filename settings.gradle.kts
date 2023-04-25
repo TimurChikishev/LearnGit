@@ -44,3 +44,8 @@ include(":shared-feature-onboarding:data")
 include(":shared-feature-onboarding:domain")
 include(":shared-feature-onboarding:presentation")
 include(":shared-feature-onboarding:ui")
+
+include(":shared-feature-levels:ui")
+include(":shared-feature-levels:presentation")
+
+include(":shared-feature-settings:ui")
