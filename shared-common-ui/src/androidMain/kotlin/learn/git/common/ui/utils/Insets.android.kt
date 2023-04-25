@@ -42,5 +42,7 @@ actual val navigationBarInset: PaddingValues
 actual fun Modifier.navigationBarInset(): Modifier = navigationBarsPadding()
 
 actual fun Modifier.statusBarInset(): Modifier = composed {
-    windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
+    windowInsetsPadding(
+        WindowInsets.systemBars.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal)
+    )
 }

@@ -13,4 +13,7 @@ sealed interface NavGraph : Parcelable {
 
     @Parcelize
     object Levels : NavGraph
+
+    @Parcelize
+    object Settings : NavGraph
 }

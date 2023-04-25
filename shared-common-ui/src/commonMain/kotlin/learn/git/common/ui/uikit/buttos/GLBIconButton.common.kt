@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
-fun GlbIconButton(
+fun GLBIconButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
@@ -36,7 +36,7 @@ fun GlbIconButton(
 }
 
 @Composable
-fun GlbIconButton(
+fun GLBIconButton(
     imageVector: ImageVector,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,

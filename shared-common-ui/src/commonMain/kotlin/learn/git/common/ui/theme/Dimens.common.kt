@@ -1,8 +1,12 @@
 package learn.git.common.ui.theme
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+val paddingSize4 = 4.dp
 val paddingSize6 = 6.dp
 val paddingSize8 = 8.dp
 val paddingSize12 = 12.dp
@@ -25,3 +29,6 @@ val fontSize28 = 28.sp
 val fontSize30 = 30.sp
 val fontSize32 = 32.sp
 val fontSize34 = 34.sp
+
+val defaultBorderStroke: BorderStroke
+    @Composable get() = BorderStroke(2.dp, MaterialTheme.colorScheme.onBackground)
