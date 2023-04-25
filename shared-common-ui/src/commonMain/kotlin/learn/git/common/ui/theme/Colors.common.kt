@@ -1,10 +1,10 @@
 package learn.git.common.ui.theme
 
-import dev.icerock.moko.graphics.Color as KColor
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
 import dev.icerock.moko.resources.ColorResource
 import learn.git.res.MR
+import dev.icerock.moko.graphics.Color as KColor
 
 fun KColor.asCompose(): Color = Color(color = argb.toInt())
 fun ColorResource.Single.asCompose(): Color = color.asCompose()

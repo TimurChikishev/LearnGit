@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-user-interface-setup")
+    id("multiplatform-feature-setup")
 }
 
 android {

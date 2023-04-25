@@ -22,10 +22,16 @@ kotlin {
             "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
     sourceSets {
+        commonMain {
+            implementations(
+                Deps.Kmm.ViewModel.core,
+                Deps.Kmm.ViewModel.cFlow,
+            )
+        }
         androidMain {
-            dependencies {
-                implementation(Deps.AndroidX.Compose.Accompanist.systemUiController)
-            }
+            implementations(
+                Deps.AndroidX.Compose.Accompanist.systemUiController,
+            )
         }
     }
 }

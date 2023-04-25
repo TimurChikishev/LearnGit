@@ -28,9 +28,7 @@ fun main() = application {
         ),
     ) {
         MainDesktop(
-            targetDependencies = object : TargetDependencies {
-                override val componentContext: DefaultComponentContext = defaultComponentContext
-            }
+            defaultComponentContext = defaultComponentContext,
         )
     }
 }

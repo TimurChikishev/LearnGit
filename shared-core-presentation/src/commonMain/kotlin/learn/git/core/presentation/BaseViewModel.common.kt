@@ -9,12 +9,15 @@ import dev.icerock.moko.mvvm.flow.cFlow
 import dev.icerock.moko.mvvm.flow.cMutableStateFlow
 import dev.icerock.moko.mvvm.flow.cStateFlow
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import learn.git.core.utils.coroutines.OneTimeEvent
+import learn.git.core.utils.coroutines.mainDispatcher
+import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel<State, Label>(
     initialState: State,
@@ -29,6 +32,9 @@ abstract class BaseViewModel<State, Label>(
     val label: CFlow<Label>
         get() = mutableLabel.receiveAsFlow().cFlow()
 
+    // TODO: remove when fixing this - https://github.com/icerockdev/moko-mvvm/issues/236
+    protected val scope = CoroutineScope(mainDispatcher)
+
     protected var binder: Binder? = null
 
     protected open fun acceptState(state: State) {
@@ -36,7 +42,7 @@ abstract class BaseViewModel<State, Label>(
     }
 
     protected open fun acceptLabel(label: Label) {
-        viewModelScope.launch {
+        scope.launch {
             mutableLabel.send(label)
         }
     }
@@ -52,5 +58,6 @@ abstract class BaseViewModel<State, Label>(
     override fun onCleared() {
         super.onCleared()
         binder?.stop()
+        scope.cancel()
     }
 }

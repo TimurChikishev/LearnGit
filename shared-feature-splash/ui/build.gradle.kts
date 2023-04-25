@@ -1,7 +1,7 @@
 plugins {
-    id("multiplatform-user-interface-setup")
+    id("multiplatform-feature-setup")
 }
 
 android {
-    namespace = "learn.git.feature.splash"
+    namespace = "learn.git.feature.splash.ui"
 }

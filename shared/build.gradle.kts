@@ -31,6 +31,7 @@ kotlin {
             dependencies {
                 api(project(":shared-common-ui"))
                 api(project(":shared-common-utils"))
+                implementation(project(":shared-core-storage"))
                 implementation(project(":shared-core-navigation"))
             }
         }

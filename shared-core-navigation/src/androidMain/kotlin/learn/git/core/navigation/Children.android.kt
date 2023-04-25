@@ -1,16 +1,17 @@
+@file:Suppress("MissingModifierDefaultValue")
+
 package learn.git.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.Child
-import com.arkivanov.decompose.router.stack.ChildStack
-import com.arkivanov.decompose.value.Value
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children as DecomposeChildren
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
+import com.arkivanov.decompose.router.stack.ChildStack
+import com.arkivanov.decompose.value.Value
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children as DecomposeChildren
 
 @Composable
 actual fun <C : Any, T : Any> Children(

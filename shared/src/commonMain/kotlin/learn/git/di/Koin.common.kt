@@ -10,7 +10,10 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) {
         appDeclaration()
         modules(koinPlatformModules())
         modules(
-            themeModule
+            themeModule,
+            *storageModules,
+            *onboardingModules,
+            *splashModules,
         )
     }
 }

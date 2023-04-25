@@ -14,7 +14,6 @@ fun GLBTheme(
     MaterialTheme(
         colorScheme = currentTheme.colorScheme,
         typography = typography,
-        shapes = shapes,
         content = content,
     )
 }

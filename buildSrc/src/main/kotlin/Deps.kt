@@ -119,6 +119,10 @@ object Deps {
             const val coroutines = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:$version"
         }
 
+        object Storage {
+            const val datastore = "androidx.datastore:datastore-preferences:1.1.0-alpha04"
+        }
+
         object BuildKonfig {
             private const val version = "0.11.0"
             const val gradlePlugin = "com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:$version"

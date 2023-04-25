@@ -1,6 +1,3 @@
-import org.gradle.api.JavaVersion
-import org.gradle.kotlin.dsl.kotlin
-
 plugins {
     kotlin("multiplatform")
     id("com.android.library")

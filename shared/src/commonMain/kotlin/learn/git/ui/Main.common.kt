@@ -8,17 +8,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.DefaultComponentContext
+import learn.git.common.ui.models.DeviceOrientation
 import learn.git.common.ui.theme.GLBTheme
+import learn.git.common.ui.utils.LocalDeviceOrientation
 import learn.git.core.navigation.LocalComponentContext
 
-interface TargetDependencies {
+interface PlatformDependencies {
+
     val componentContext: DefaultComponentContext
+
+    val orientation: DeviceOrientation
 }
 
 @Composable
-internal fun MainCommon(targetDependencies: TargetDependencies) {
+internal fun MainCommon(platformDependencies: PlatformDependencies) {
     CompositionLocalProvider(
-        LocalComponentContext provides targetDependencies.componentContext
+        LocalComponentContext provides platformDependencies.componentContext,
+        LocalDeviceOrientation provides platformDependencies.orientation,
     ) {
         MainWithProvidedDependencies()
     }
@@ -36,5 +42,3 @@ private fun MainWithProvidedDependencies() {
         }
     }
 }
-
-

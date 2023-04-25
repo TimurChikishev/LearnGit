@@ -24,7 +24,7 @@ class App : Application() {
 
     private fun setupNapier() {
         if (BuildConfig.DEBUG) {
-            Napier.base(DebugAntilog(defaultTag = "GitLearn"))
+            Napier.base(DebugAntilog(defaultTag = "LearnGit"))
         }
     }
 }
