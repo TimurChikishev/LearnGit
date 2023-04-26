@@ -14,4 +14,6 @@
     <string name="levels_appbar_title">LearnGit</string>
 
     <string name="settings_appbar_title">Settings</string>
+
+    <string name="lessons_appbar_title">Lessons</string>
 </resources>

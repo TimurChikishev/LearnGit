@@ -49,3 +49,6 @@ include(":shared-feature-levels:ui")
 include(":shared-feature-levels:presentation")
 
 include(":shared-feature-settings:ui")
+
+include(":shared-feature-lessons:ui")
+include(":shared-feature-lessons:presentation")

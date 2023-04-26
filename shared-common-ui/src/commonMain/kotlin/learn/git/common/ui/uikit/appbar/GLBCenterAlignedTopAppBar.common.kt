@@ -36,6 +36,32 @@ fun GLBCenterAlignedTopAppBar(
     actions: @Composable() (RowScope.() -> Unit) = {},
     onNavigationClick: () -> Unit = {},
 ) {
+    GLBCenterAlignedTopAppBar(
+        modifier = modifier,
+        title = stringResource(title),
+        showNavigationIcon = showNavigationIcon,
+        onNavigationClick = onNavigationClick,
+        textStyle = textStyle,
+        colors = colors,
+        actions = actions,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun GLBCenterAlignedTopAppBar(
+    title: String,
+    modifier: Modifier = Modifier,
+    showNavigationIcon: Boolean = true,
+    textStyle: TextStyle = MaterialTheme.typography.titleLarge,
+    colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+        containerColor = Color.Transparent,
+        navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
+        actionIconContentColor = MaterialTheme.colorScheme.onBackground,
+    ),
+    actions: @Composable() (RowScope.() -> Unit) = {},
+    onNavigationClick: () -> Unit = {},
+) {
     CenterAlignedTopAppBar(
         modifier = modifier
             .background(
@@ -50,7 +76,7 @@ fun GLBCenterAlignedTopAppBar(
             .statusBarInset(),
         title = {
             Text(
-                text = stringResource(title),
+                text = title,
                 style = textStyle,
             )
         },
