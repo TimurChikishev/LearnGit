@@ -18,6 +18,7 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.material3)
                 implementation(compose.foundation)
+                implementation(Deps.Kmm.Decompose.compose)
                 implementation(Deps.Kmm.Logging.napier)
                 implementation(Deps.Kmm.Koin.core)
                 implementation(Deps.Kmm.Decompose.core)
@@ -38,7 +39,6 @@ kotlin {
                 api(Deps.Kmm.Resources.compose)
                 implementation(Deps.Kmm.Koin.compose)
                 implementation(Deps.Kmm.Decompose.android)
-                implementation(Deps.Kmm.Decompose.compose)
                 implementation(Deps.Kotlin.Coroutines.android)
             }
         }
@@ -55,7 +55,6 @@ kotlin {
                 api(Deps.Kmm.Resources.compose)
                 implementation(compose.desktop.common)
                 implementation(Deps.Kmm.Koin.compose)
-                implementation(Deps.Kmm.Decompose.compose)
                 implementation(Deps.Kotlin.Coroutines.swing)
             }
         }

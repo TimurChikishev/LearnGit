@@ -1,6 +1,10 @@
 package learn.git.ui
 
 import androidx.compose.runtime.Composable
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import kotlinx.collections.immutable.persistentListOf
 import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.NavigationContent
@@ -20,6 +24,7 @@ internal fun NavigationGraph() {
 
     NavigationContent(
         router = router,
+        animation = stackAnimation(fade().plus(scale()))
     ) { screen ->
         when (screen) {
             is NavGraph.Splash -> SplashScreen(router = router)
