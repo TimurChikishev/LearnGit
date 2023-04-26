@@ -1,6 +1,6 @@
 package learn.git.feature.onboarding.data
 
-import learn.git.core.storage.data.settings.SettingsStorage
+import learn.git.core.storage.preference.settings.SettingsStorage
 import learn.git.feature.onboarding.api.OnboardingRepository
 
 class OnboardingRepositoryImpl(

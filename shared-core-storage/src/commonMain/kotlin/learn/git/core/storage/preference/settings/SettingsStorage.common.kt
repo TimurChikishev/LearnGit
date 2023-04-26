@@ -1,4 +1,4 @@
-package learn.git.core.storage.data.settings
+package learn.git.core.storage.preference.settings
 
 interface SettingsStorage {
 
