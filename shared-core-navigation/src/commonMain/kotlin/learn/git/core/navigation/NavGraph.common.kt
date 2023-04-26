@@ -15,5 +15,8 @@ sealed interface NavGraph : Parcelable {
     object Levels : NavGraph
 
     @Parcelize
+    data class Lessons(val levelId: Long) : NavGraph
+
+    @Parcelize
     object Settings : NavGraph
 }

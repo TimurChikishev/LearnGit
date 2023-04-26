@@ -94,7 +94,7 @@ object Deps {
         }
 
         object Decompose {
-            private const val version = "2.0.0-alpha-02"
+            private const val version = "2.0.0-compose-experimental-alpha-02"
             const val core = "com.arkivanov.decompose:decompose:$version"
             const val compose = "com.arkivanov.decompose:extensions-compose-jetbrains:$version"
             const val android = "com.arkivanov.decompose:extensions-android:$version"
