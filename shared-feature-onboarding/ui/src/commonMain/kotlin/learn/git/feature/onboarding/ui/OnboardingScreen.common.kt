@@ -14,10 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.arkivanov.decompose.router.stack.replaceCurrent
 import learn.git.common.ui.theme.paddingSize48
+import learn.git.common.ui.utils.get
 import learn.git.common.ui.utils.navigationBarInset
 import learn.git.common.ui.utils.rememberBlock
 import learn.git.common.ui.utils.statusBarInset
-import learn.git.common.ui.utils.viewModel
 import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.Router
 import learn.git.feature.onboarding.presentation.OnboardingViewModel
@@ -28,7 +28,7 @@ import learn.git.feature.onboarding.presentation.models.UiOnboardingLabel
 fun OnboardingScreen(
     router: Router<NavGraph>,
     modifier: Modifier = Modifier,
-    viewModel: OnboardingViewModel = viewModel(),
+    viewModel: OnboardingViewModel = get(),
 ) {
     val state by viewModel.state.collectAsState()
     val pagerState = rememberPagerState()

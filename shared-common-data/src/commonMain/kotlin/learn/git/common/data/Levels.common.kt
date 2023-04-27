@@ -14,13 +14,13 @@ internal class LevelDataImpl : LevelData {
 }
 
 internal object Level {
-    const val INTRODUCTION = 1L
+    const val BASIC = 1L
     const val INTERMEDIATE = 2L
 }
 
 internal val levels: List<LocalLevel> = listOf(
     LocalLevel(
-        id = Level.INTRODUCTION,
+        id = Level.BASIC,
         title = MR.strings.level_introduction_title,
         subtitle = MR.strings.level_introduction_subtitle,
     ),

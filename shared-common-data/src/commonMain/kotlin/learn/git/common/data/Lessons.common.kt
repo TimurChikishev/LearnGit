@@ -13,7 +13,7 @@ internal class LessonDataImpl : LessonData {
 }
 
 internal val lessons: Map<Long, List<LocalLesson>> = mapOf(
-    Level.INTRODUCTION to listOf(
+    Level.BASIC to listOf(
         LocalLesson(
             id = 1,
             title = MR.strings.lesson_introduction_to_commit_title,
