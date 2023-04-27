@@ -55,5 +55,8 @@ include(":shared-feature-levels:ui")
 
 include(":shared-feature-settings:ui")
 
-include(":shared-feature-lessons:ui")
+include(":shared-feature-lessons:api")
+include(":shared-feature-lessons:data")
+include(":shared-feature-lessons:domain")
 include(":shared-feature-lessons:presentation")
+include(":shared-feature-lessons:ui")
