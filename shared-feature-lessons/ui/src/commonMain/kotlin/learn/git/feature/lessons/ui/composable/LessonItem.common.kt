@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import learn.git.common.ui.theme.paddingSize12
 import learn.git.common.ui.theme.paddingSize8
 import learn.git.common.ui.utils.defaultBorder
+import learn.git.common.ui.utils.stringResource
 import learn.git.feature.lessons.presentation.models.UiLesson
 
 @Composable
@@ -43,11 +44,11 @@ internal fun LessonItem(
             verticalArrangement = Arrangement.spacedBy(paddingSize8),
         ) {
             Text(
-                text = item.title,
+                text = stringResource(item.title),
                 style = MaterialTheme.typography.labelLarge,
             )
             Text(
-                text = item.subtitle,
+                text = stringResource(item.subtitle),
                 style = MaterialTheme.typography.bodySmall,
             )
         }

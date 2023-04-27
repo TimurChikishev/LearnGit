@@ -17,7 +17,7 @@
 
     <string name="lessons_appbar_title">Lessons</string>
 
-    <string name="level_introduction_title">Introduction</string>
+    <string name="level_introduction_title">Basic</string>
     <string name="level_introduction_subtitle">A well-chosen introduction to the basic git commands</string>
 
     <string name="lesson_introduction_to_commit_title">Introduction to commit</string>
@@ -31,4 +31,13 @@
 
     <string name="lesson_introduction_to_rebase_title">Introduction to rebase</string>
     <string name="lesson_introduction_to_rebase_subtitle">Learning how to merge one branch into another using rebase</string>
+
+    <string name="level_intermediate_title">Intermediate</string>
+    <string name="level_introduction_subtitle">A level for those who already know the initial commands</string>
+
+    <string name="lesson_intermediate_to_cherry_pick_title">Introduction to cherry-pick</string>
+    <string name="lesson_intermediate_to_cherry_pick_subtitle">Changing the history using the git cherry-pick command</string>
+
+    <string name="lesson_intermediate_to_interactive_rebase_title">Introduction to interactive rebase</string>
+    <string name="lesson_intermediate_to_interactive_rebase_subtitle">Changing history with the interactive rebase</string>
 </resources>

@@ -4,7 +4,7 @@ import learn.git.feature.levels.api.data.LevelsRepository
 import learn.git.feature.levels.api.domain.LevelsUseCase
 import learn.git.feature.levels.api.domain.models.Level
 
-class LevelsUseCaseImpl(
+internal class LevelsUseCaseImpl(
     private val levelsRepository: LevelsRepository
 ) : LevelsUseCase {
 
