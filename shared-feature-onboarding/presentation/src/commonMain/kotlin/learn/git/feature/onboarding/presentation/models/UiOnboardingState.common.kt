@@ -3,9 +3,9 @@ package learn.git.feature.onboarding.presentation.models
 import androidx.compose.material.icons.Icons
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
-import learn.git.common.ui.icons.Branching
-import learn.git.common.ui.icons.Challenge
-import learn.git.common.ui.icons.Guide
+import learn.git.common.res.icons.Branching
+import learn.git.common.res.icons.Challenge
+import learn.git.common.res.icons.Guide
 import learn.git.res.MR
 
 data class UiOnboardingState(

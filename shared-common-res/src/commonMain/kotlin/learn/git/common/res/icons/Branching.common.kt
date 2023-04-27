@@ -1,4 +1,4 @@
-package learn.git.common.ui.icons
+package learn.git.common.res.icons
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.ui.graphics.Color

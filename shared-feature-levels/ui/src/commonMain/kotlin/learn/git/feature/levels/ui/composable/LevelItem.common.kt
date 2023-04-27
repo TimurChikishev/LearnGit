@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import learn.git.common.ui.theme.paddingSize8
 import learn.git.common.ui.uikit.indicator.GLBLinearProgressIndicator
+import learn.git.common.ui.utils.stringResource
 import learn.git.feature.levels.presentation.models.UiLevel
 
 @Composable
@@ -22,11 +23,11 @@ internal fun LevelItem(
         verticalArrangement = Arrangement.spacedBy(paddingSize8),
     ) {
         Text(
-            text = item.title,
+            text = stringResource(item.title),
             style = MaterialTheme.typography.labelLarge,
         )
         Text(
-            text = item.subtitle,
+            text = stringResource(item.subtitle),
             style = MaterialTheme.typography.bodySmall,
         )
         GLBLinearProgressIndicator(

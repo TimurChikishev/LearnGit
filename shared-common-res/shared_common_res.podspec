@@ -1,24 +1,24 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'shared_common_ui'
+    spec.name                     = 'shared_common_res'
     spec.version                  = '1.0-SNAPSHOT'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = ''
-    spec.vendored_frameworks      = 'build/cocoapods/framework/shared_common_ui.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/shared_common_res.framework'
     spec.libraries                = 'c++'
                 
                 
                 
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':shared-common-ui',
-        'PRODUCT_MODULE_NAME' => 'shared_common_ui',
+        'KOTLIN_PROJECT_PATH' => ':shared-common-res',
+        'PRODUCT_MODULE_NAME' => 'shared_common_res',
     }
                 
     spec.script_phases = [
         {
-            :name => 'Build shared_common_ui',
+            :name => 'Build shared_common_res',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT

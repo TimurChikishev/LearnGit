@@ -10,7 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.router.stack.replaceCurrent
-import learn.git.common.ui.icons.Branching
+import learn.git.common.res.icons.Branching
 import learn.git.common.ui.utils.viewModel
 import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.Router
