@@ -1,6 +1,5 @@
 package learn.git.common.ui.uikit.appbar
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -13,13 +12,13 @@ import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import dev.icerock.moko.resources.StringResource
 import learn.git.common.ui.uikit.buttos.GLBIconButton
 import learn.git.common.ui.utils.statusBarInset
 import learn.git.common.ui.utils.stringResource
+import learn.git.common.ui.utils.verticalGradientBackground
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -64,15 +63,7 @@ fun GLBCenterAlignedTopAppBar(
 ) {
     CenterAlignedTopAppBar(
         modifier = modifier
-            .background(
-                brush = Brush.verticalGradient(
-                    colorStops = arrayOf(
-                        0.4f to MaterialTheme.colorScheme.background,
-                        0.8f to MaterialTheme.colorScheme.background.copy(alpha = 0.8f),
-                        1f to Color.Transparent,
-                    ),
-                ),
-            )
+            .verticalGradientBackground()
             .statusBarInset(),
         title = {
             Text(
@@ -86,7 +77,7 @@ fun GLBCenterAlignedTopAppBar(
                     imageVector = Icons.Default.ArrowBack,
                     onClick = onNavigationClick,
                     colors = IconButtonDefaults.iconButtonColors(
-                        containerColor = MaterialTheme.colorScheme.background,
+                        containerColor = Color.Transparent,
                         contentColor = MaterialTheme.colorScheme.onBackground,
                     ),
                 )
