@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="app_name">LearnGit</string>
+
+    <string name="onboarding_welcome_title">Welcome to\nLearnGit</string>
+    <string name="onboarding_welcome_subtitle">Interactive git visualization and tutorial for beginners and advanced!</string>
+
+    <string name="onboarding_guide_title">Guide for\nBeginners</string>
+    <string name="onboarding_guide_subtitle">Our app will provide you with all the knowledge you need to become a Git expert.</string>
+
+    <string name="onboarding_challenge_title">Take the\nChallenge</string>
+    <string name="onboarding_challenge_subtitle">Our app allows you to test your Git knowledge in an interactive environment.</string>
+
+    <string name="levels_appbar_title">LearnGit</string>
+
+    <string name="settings_appbar_title">Settings</string>
+
+    <string name="lessons_appbar_title">Lessons</string>
+
+    <string name="level_introduction_title">Basic</string>
+    <string name="level_introduction_subtitle">A well-chosen introduction to the basic git commands</string>
+
+    <string name="lesson_introduction_to_commit_title">Introduction to commit</string>
+    <string name="lesson_introduction_to_commit_subtitle">Learning how to take a snapshot of current changes in a project</string>
+
+    <string name="lesson_introduction_to_branching_title">Introduction to branching</string>
+    <string name="lesson_introduction_to_branching_subtitle">Learning how to create new branches in a project</string>
+
+    <string name="lesson_introduction_to_merge_title">Introduction to merge</string>
+    <string name="lesson_introduction_to_merge_subtitle">Learning how to merge one branch into another</string>
+
+    <string name="lesson_introduction_to_rebase_title">Introduction to rebase</string>
+    <string name="lesson_introduction_to_rebase_subtitle">Learning how to merge one branch into another using rebase</string>
+
+    <string name="level_intermediate_title">Intermediate</string>
+    <string name="level_introduction_subtitle">A level for those who already know the initial commands</string>
+
+    <string name="lesson_intermediate_to_cherry_pick_title">Introduction to cherry-pick</string>
+    <string name="lesson_intermediate_to_cherry_pick_subtitle">Changing the history using the git cherry-pick command</string>
+
+    <string name="lesson_intermediate_to_interactive_rebase_title">Introduction to interactive rebase</string>
+    <string name="lesson_intermediate_to_interactive_rebase_subtitle">Changing history with the interactive rebase</string>
+</resources>

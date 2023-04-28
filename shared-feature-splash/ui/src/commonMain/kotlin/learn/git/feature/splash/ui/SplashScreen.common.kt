@@ -10,8 +10,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.router.stack.replaceCurrent
-import learn.git.common.ui.icons.Branching
-import learn.git.common.ui.utils.viewModel
+import learn.git.common.res.icons.Branching
+import learn.git.common.ui.utils.get
 import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.Router
 import learn.git.feature.splash.presentation.SplashViewModel
@@ -20,7 +20,7 @@ import learn.git.feature.splash.presentation.SplashViewModel
 fun SplashScreen(
     router: Router<NavGraph>,
     modifier: Modifier = Modifier,
-    viewModel: SplashViewModel = viewModel()
+    viewModel: SplashViewModel = get()
 ) {
     Box(
         modifier = modifier.fillMaxSize(),

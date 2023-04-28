@@ -94,7 +94,7 @@ private fun OnboardingPageLandscape(
             .padding(paddingSize48),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Spacer(modifier = Modifier.weight(0.8f))
+        Spacer(modifier = Modifier.weight(0.5f))
         Icon(
             modifier = Modifier
                 .size(DpSize(width = 150.dp, height = 150.dp))
@@ -120,6 +120,6 @@ private fun OnboardingPageLandscape(
                 textAlign = TextAlign.Start,
             )
         }
-        Spacer(modifier = Modifier.weight(0.8f))
+        Spacer(modifier = Modifier.weight(0.5f))
     }
 }

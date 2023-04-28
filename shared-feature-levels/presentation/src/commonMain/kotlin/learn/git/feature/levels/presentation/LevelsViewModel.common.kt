@@ -1,22 +1,28 @@
 package learn.git.feature.levels.presentation
 
-import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toPersistentList
 import learn.git.core.presentation.BaseViewModel
+import learn.git.core.utils.common.Mapper
+import learn.git.feature.levels.api.domain.LevelsUseCase
+import learn.git.feature.levels.api.domain.models.Level
 import learn.git.feature.levels.presentation.models.UiLevel
 import learn.git.feature.levels.presentation.models.UiLevelsState
 
-class LevelsViewModel : BaseViewModel<UiLevelsState, Nothing>(initialState = UiLevelsState()) {
+class LevelsViewModel(
+    private val levelsUseCase: LevelsUseCase,
+    private val levelsMapper: Mapper<Level, UiLevel>,
+) : BaseViewModel<UiLevelsState, Nothing>(initialState = UiLevelsState()) {
 
     init {
-        mutableState.value = UiLevelsState(
-            levels = persistentListOf(
-                UiLevel(
-                    id = 1,
-                    title = "Introduction",
-                    subtitle = "A well-chosen introduction to the basic git commands",
-                    progress = 0.5F,
-                ),
-            ),
-        )
+        init()
+    }
+
+    private fun init() {
+        val levels = levelsUseCase
+            .getAllLevels()
+            .map(levelsMapper::map)
+            .toPersistentList()
+
+        mutableState.value = UiLevelsState(levels = levels)
     }
 }

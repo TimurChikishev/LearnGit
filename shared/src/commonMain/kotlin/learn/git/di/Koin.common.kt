@@ -1,5 +1,6 @@
 package learn.git.di
 
+import learn.git.common.data.di.coreDataModule
 import learn.git.common.ui.di.themeModule
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
@@ -11,6 +12,7 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) {
         modules(koinPlatformModules())
         modules(
             themeModule,
+            coreDataModule,
             *storageModules,
             *onboardingModules,
             *splashModules,

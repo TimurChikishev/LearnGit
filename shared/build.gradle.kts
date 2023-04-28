@@ -17,7 +17,7 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
-            export(project(":shared-common-ui"))
+            export(project(":shared-common-res"))
             export(Deps.Kmm.Resources.core)
             export(Deps.Kmm.Decompose.core)
             export(Deps.Kmm.Essenty.lifecycle)
@@ -30,7 +30,9 @@ kotlin {
         commonMain {
             dependencies {
                 api(project(":shared-common-ui"))
+                api(project(":shared-common-res"))
                 api(project(":shared-common-utils"))
+                implementation(project(":shared-common-data"))
                 implementation(project(":shared-core-storage"))
                 implementation(project(":shared-core-navigation"))
             }

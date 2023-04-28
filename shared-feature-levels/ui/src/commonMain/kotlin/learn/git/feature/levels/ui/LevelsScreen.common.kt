@@ -7,9 +7,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.router.stack.push
+import learn.git.common.ui.utils.get
 import learn.git.common.ui.utils.rememberBlock
 import learn.git.common.ui.utils.rememberBlockWithParams
-import learn.git.common.ui.utils.viewModel
 import learn.git.core.navigation.NavGraph
 import learn.git.core.navigation.Router
 import learn.git.feature.levels.presentation.LevelsViewModel
@@ -21,7 +21,7 @@ import learn.git.feature.levels.ui.composable.LevelsList
 fun LevelsScreen(
     router: Router<NavGraph>,
     modifier: Modifier = Modifier,
-    viewModel: LevelsViewModel = viewModel(),
+    viewModel: LevelsViewModel = get(),
 ) {
     val state by viewModel.state.collectAsState()
     Scaffold(

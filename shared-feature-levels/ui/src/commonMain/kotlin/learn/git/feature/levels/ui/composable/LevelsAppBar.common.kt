@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import learn.git.common.ui.uikit.appbar.GLBCenterAlignedTopAppBar
 import learn.git.common.ui.uikit.buttos.GLBIconButton
 import learn.git.res.MR
@@ -26,7 +27,7 @@ internal fun LevelsAppBar(
                 imageVector = Icons.Outlined.Settings,
                 onClick = onSettingsClick,
                 colors = IconButtonDefaults.iconButtonColors(
-                    containerColor = MaterialTheme.colorScheme.background,
+                    containerColor = Color.Transparent,
                     contentColor = MaterialTheme.colorScheme.onBackground,
                 )
             )
