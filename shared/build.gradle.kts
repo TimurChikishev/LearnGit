@@ -33,6 +33,7 @@ kotlin {
                 api(project(":shared-common-res"))
                 api(project(":shared-common-utils"))
                 implementation(project(":shared-common-data"))
+                implementation(project(":shared-common-graph"))
                 implementation(project(":shared-core-storage"))
                 implementation(project(":shared-core-navigation"))
             }

@@ -117,9 +117,9 @@ private fun HorizontalPagerIndicator(
                 .then(
                     if (pageCount > 0) {
                         Modifier.background(
-                        color = activeColor,
-                        shape = indicatorShape,
-                    )
+                            color = activeColor,
+                            shape = indicatorShape,
+                        )
                     } else {
                         Modifier
                     }
