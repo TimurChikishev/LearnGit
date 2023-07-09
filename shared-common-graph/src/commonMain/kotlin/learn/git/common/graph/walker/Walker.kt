@@ -36,7 +36,7 @@ class Walker<T>(private val config: WalkerConfig) {
     private val TreeNode<T>.lastChild: TreeNode<T>?
         get() = children.lastOrNull()
 
-    private val TreeNode<T>.centerChild: Int
+    private val TreeNode<T>.centerChild: Float
         get() {
             val node = this.firstChild.requiredNotNull()
             val node1 = this.lastChild.requiredNotNull()
@@ -45,7 +45,7 @@ class Walker<T>(private val config: WalkerConfig) {
 
     fun positionTree(tree: TreeNode<T>, shiftX: Float, shiftY: Float) {
         firstWalk(node = tree, 0)
-        secondWalk(node = tree, 0)
+        secondWalk(node = tree, 0F)
         shiftPositions(
             tree = tree,
             shiftX = shiftX,
@@ -61,13 +61,13 @@ class Walker<T>(private val config: WalkerConfig) {
             if (leftSibling != null) {
                 node.setPrelim(leftSibling.prelim + config.siblingSeparation + config.nodeSize)
             } else {
-                node.setPrelim(0)
+                node.setPrelim(0F)
             }
         } else {
             for (child in node.children) {
                 firstWalk(node = child, level = level + 1)
             }
-            val midPoint = node.centerChild - (config.nodeSize / 2)
+            val midPoint = node.centerChild - (config.nodeSize / 2F)
             val leftSibling = node.leftSibling
             if (leftSibling != null) {
                 node.setPrelim(leftSibling.prelim + config.nodeSize + config.siblingSeparation)
@@ -79,7 +79,7 @@ class Walker<T>(private val config: WalkerConfig) {
         }
     }
 
-    private fun secondWalk(node: TreeNode<T>, modifier: Int) {
+    private fun secondWalk(node: TreeNode<T>, modifier: Float) {
         val depth = node.depth()
 
         node.setPosition(
@@ -100,8 +100,8 @@ class Walker<T>(private val config: WalkerConfig) {
 
         var j = 1
         while (firstChild != null && firstChildLeftNeighbor != null) {
-            var modifierSumRight = 0
-            var modifierSumLeft = 0
+            var modifierSumRight = 0F
+            var modifierSumLeft = 0F
             var rightAncestor = firstChild
             var leftAncestor = firstChildLeftNeighbor
 

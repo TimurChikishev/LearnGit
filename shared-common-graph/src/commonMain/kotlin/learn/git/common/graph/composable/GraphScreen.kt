@@ -9,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFontFamilyResolver
 import learn.git.common.graph.tree.TreeNode
@@ -58,10 +59,10 @@ fun GraphScreen() {
     val config by remember(zoomScale) {
         mutableStateOf(
             WalkerConfig(
-                siblingSeparation = 70 * zoomScale.toInt(),
-                levelSeparation = 70 * zoomScale.toInt(),
-                subtreeSeparation = 50 * zoomScale.toInt(),
-                nodeSize = 70 * zoomScale.toInt()
+                siblingSeparation = 70F * zoomScale,
+                levelSeparation = 70F * zoomScale,
+                subtreeSeparation = 50F * zoomScale,
+                nodeSize = 70F * zoomScale
             )
         )
     }
@@ -73,7 +74,7 @@ fun GraphScreen() {
     }
 
     Canvas(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .pointerInput(Unit) {
                 detectTransformGestures { centroid, pan, zoom, rotation ->

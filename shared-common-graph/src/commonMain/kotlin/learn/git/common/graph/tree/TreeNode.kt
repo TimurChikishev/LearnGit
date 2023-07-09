@@ -16,12 +16,12 @@ open class TreeNode<T>(val value: T) : Iterable<TreeNode<T>> {
     val position: Point
         get() = _position
 
-    private var _prelim = 0
-    val prelim: Int
+    private var _prelim = 0F
+    val prelim: Float
         get() = _prelim
 
-    private var _modifier = 0
-    val modifier: Int
+    private var _modifier = 0F
+    val modifier: Float
         get() = _modifier
 
     var leftNeighbor: TreeNode<T>? = null
@@ -35,11 +35,11 @@ open class TreeNode<T>(val value: T) : Iterable<TreeNode<T>> {
         _position = Point(x = x, y = y)
     }
 
-    fun setPrelim(prelim: Int) {
+    fun setPrelim(prelim: Float) {
         _prelim = prelim
     }
 
-    fun setModifier(modifier: Int) {
+    fun setModifier(modifier: Float) {
         _modifier = modifier
     }
 
