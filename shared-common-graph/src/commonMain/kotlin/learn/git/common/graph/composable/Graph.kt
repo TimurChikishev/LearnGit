@@ -1,6 +1,5 @@
 package learn.git.common.graph.composable
 
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -10,14 +9,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFontFamilyResolver
+import androidx.compose.ui.text.font.FontFamily
 import learn.git.common.graph.tree.TreeNode
-import learn.git.common.graph.tree.findMaxLevelSize
 import learn.git.common.graph.walker.Walker
 import learn.git.common.graph.walker.WalkerConfig
 
-private val tree = TreeNode("0").apply {
+private val treeNode = TreeNode("0").apply {
     addChild(
         TreeNode("C1").apply {
             addChild(TreeNode("C7"))
@@ -44,70 +44,56 @@ private val tree = TreeNode("0").apply {
     )
 }
 
-@Suppress("ModifierMissing")
-@Composable
-fun GraphScreen() {
-    val nodeColor = MaterialTheme.colorScheme.onBackground
-    val arrowColor = MaterialTheme.colorScheme.onBackground
+private val defaultWalkerConfig = WalkerConfig(
+    siblingSeparation = 70F,
+    levelSeparation = 70F,
+    subtreeSeparation = 50F,
+    nodeSize = 70F,
+)
 
+@Composable
+fun Graph(
+    tree: TreeNode<String>,
+    modifier: Modifier = Modifier,
+    walkerConfig: WalkerConfig = defaultWalkerConfig,
+    nodeColor: Color = MaterialTheme.colorScheme.onBackground,
+    arrowColor: Color = MaterialTheme.colorScheme.onBackground,
+    fontFamilyResolver: FontFamily.Resolver = LocalFontFamilyResolver.current,
+) {
     var shiftX by remember { mutableStateOf(0f) }
     var shiftY by remember { mutableStateOf(0f) }
     var zoomScale by remember { mutableStateOf(1f) }
 
-    val fontFamilyResolver = LocalFontFamilyResolver.current
-
     val config by remember(zoomScale) {
         mutableStateOf(
-            WalkerConfig(
-                siblingSeparation = 70F * zoomScale,
-                levelSeparation = 70F * zoomScale,
-                subtreeSeparation = 50F * zoomScale,
-                nodeSize = 70F * zoomScale
+            walkerConfig.copy(
+                siblingSeparation = walkerConfig.siblingSeparation * zoomScale,
+                levelSeparation = walkerConfig.levelSeparation * zoomScale,
+                subtreeSeparation = walkerConfig.subtreeSeparation * zoomScale,
+                nodeSize = walkerConfig.nodeSize * zoomScale
             )
         )
     }
 
-    val walker = remember(config) {
-        Walker<String>(
-            config = config
-        )
-    }
+    val walker = remember(config) { Walker<String>(config = config) }
 
-    Canvas(
-        modifier = Modifier
-            .fillMaxSize()
+    GraphCanvas(
+        modifier = modifier.fillMaxSize()
             .pointerInput(Unit) {
-                detectTransformGestures { centroid, pan, zoom, rotation ->
+                detectTransformGestures { _, pan, zoom, _ ->
                     shiftX += pan.x
                     shiftY += pan.y
                     zoomScale *= zoom
                 }
-            }
-    ) {
-        val nodeSize = config.nodeSize.toFloat()
-        val levelSeparation = config.levelSeparation.toFloat()
-
-        tree.setPosition(x = 0f, y = 0f)
-
-        walker.positionTree(
-            tree = tree,
-            shiftX = shiftX + size.width / tree.findMaxLevelSize(),
-            shiftY = shiftY + nodeSize / 2f
-        )
-
-        tree.forEach { node ->
-            drawNode(
-                node = node,
-                nodeRadius = nodeSize / 2,
-                contentColor = nodeColor,
-                fontFamilyResolver = fontFamilyResolver
-            )
-            drawArrow(
-                child = node,
-                nodeSize = nodeSize,
-                levelSeparation = levelSeparation,
-                color = arrowColor
-            )
-        }
-    }
+            },
+        tree = tree,
+        walker = walker,
+        shiftY = shiftY,
+        shiftX = shiftX,
+        nodeSize = config.nodeSize,
+        levelSeparation = config.levelSeparation,
+        nodeColor = nodeColor,
+        arrowColor = arrowColor,
+        fontFamilyResolver = fontFamilyResolver,
+    )
 }

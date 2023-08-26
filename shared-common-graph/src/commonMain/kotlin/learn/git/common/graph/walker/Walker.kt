@@ -84,8 +84,8 @@ class Walker<T>(private val config: WalkerConfig) {
 
         node.setPosition(
             Point(
-                x = (node.prelim + modifier).toFloat(),
-                y = (depth * (config.nodeSize) + depth * config.levelSeparation).toFloat()
+                x = (node.prelim + modifier),
+                y = (depth * (config.nodeSize) + depth * config.levelSeparation)
             )
         )
 
@@ -138,6 +138,7 @@ class Walker<T>(private val config: WalkerConfig) {
                     }
                 }
             }
+
             j++
 
             firstChild = if (firstChild.children.isEmpty()) {

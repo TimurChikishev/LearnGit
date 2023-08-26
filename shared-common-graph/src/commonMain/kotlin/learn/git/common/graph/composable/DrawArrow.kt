@@ -12,7 +12,7 @@ import learn.git.common.graph.tree.TreeNode
 private val linePath = Path()
 private val trianglePath = Path()
 
-fun <T> DrawScope.drawArrow(
+internal fun <T> DrawScope.drawArrow(
     child: TreeNode<T>,
     nodeSize: Float,
     halfWidth: Float = 10f,
